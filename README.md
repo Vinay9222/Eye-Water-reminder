@@ -1,6 +1,6 @@
 # 👁️ EyeReminder
 
-[![Download EyeReminder.exe](https://img.shields.io/badge/Download-EyeReminder.exe-2ea44f?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/Vinay9222/Eye-Water-reminder/releases/latest/download/EyeReminder.exe)
+[![Download EyeReminder.exe](https://img.shields.io/badge/Download-EyeReminder.exe-2ea44f?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/Vinay9222/Eye-Water-reminder/raw/main/EyeReminder.exe)
 [![GitHub Release](https://img.shields.io/github/v/release/Vinay9222/Eye-Water-reminder?style=for-the-badge&color=blue)](https://github.com/Vinay9222/Eye-Water-reminder/releases)
 [![Platform](https://img.shields.io/badge/Platform-Windows%2010%20%2F%2011-0078D4?style=for-the-badge&logo=windows)](https://github.com/Vinay9222/Eye-Water-reminder)
 
@@ -12,13 +12,13 @@
 
 For Windows users who want to run EyeReminder instantly without installing Python or setting up code:
 
-### 📥 Direct Download Options:
-1. **[Download Latest EyeReminder.exe](https://github.com/Vinay9222/Eye-Water-reminder/releases/latest/download/EyeReminder.exe)** *(Direct Download link from Releases)*
-2. **[View All GitHub Releases](https://github.com/Vinay9222/Eye-Water-reminder/releases)** *(Browse release history & release notes)*
+### 📥 Direct Download Links:
+1. **[⚡ Click Here to Download EyeReminder.exe (Direct Main Branch Link)](https://github.com/Vinay9222/Eye-Water-reminder/raw/main/EyeReminder.exe)** *(Guaranteed working direct download link from repo)*
+2. **[🏷️ Download from GitHub Releases](https://github.com/Vinay9222/Eye-Water-reminder/releases/latest/download/EyeReminder.exe)** *(Official Release link - requires creating a Release Tag on GitHub)*
 
 ### 🚀 How to Run:
-1. Download `EyeReminder.exe` using the link above.
-2. Double-click **`EyeReminder.exe`** to launch.
+1. Download **`EyeReminder.exe`** using the direct download link above.
+2. Double-click **`EyeReminder.exe`** on your Windows PC to launch.
 3. The app will run quietly in your Windows **System Tray** (near your system clock).
 4. Click the system tray icon to open **Settings**, view **Statistics**, or customize your break schedule.
 

@@ -7,7 +7,7 @@ __pycache__/
 build/
 dist/
 *.spec
-EyeReminder.exe
+# EyeReminder.exe (Tracked in root for direct raw download)
 
 # User / OS generated log files
 *.log
