@@ -1,0 +1,368 @@
+[33mcommit 1c82385171cc5e49cc57d1ada885d04c04b783ba[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m
+Author: Vinay9222 <vinaychougale9222@gmail.com>
+Date:   Sat Jul 25 16:55:22 2026 +0530
+
+    Eye and Water Reminder
+
+[1mdiff --git a/.gitignore b/.gitignore[m
+[1mnew file mode 100644[m
+[1mindex 0000000..6bd7090[m
+[1m--- /dev/null[m
+[1m+++ b/.gitignore[m
+[36m@@ -0,0 +1,23 @@[m
+[32m+[m[32m# Byte-compiled / optimized / DLL files[m
+[32m+[m[32m__pycache__/[m
+[32m+[m[32m*.py[cod][m
+[32m+[m[32m*$py.class[m
+[32m+[m
+[32m+[m[32m# PyInstaller / Build outputs[m
+[32m+[m[32mbuild/[m
+[32m+[m[32mdist/[m
+[32m+[m[32m*.spec[m
+[32m+[m[32mEyeReminder.exe[m
+[32m+[m
+[32m+[m[32m# User / OS generated log files[m
+[32m+[m[32m*.log[m
+[32m+[m
+[32m+[m[32m# Environments[m
+[32m+[m[32m.venv/[m
+[32m+[m[32mvenv/[m
+[32m+[m[32mENV/[m
+[32m+[m[32menv/[m
+[32m+[m
+[32m+[m[32m# IDE / Editor settings[m
+[32m+[m[32m.vscode/[m
+[32m+[m[32m.idea/[m
+[1mdiff --git a/README.md b/README.md[m
+[1mnew file mode 100644[m
+[1mindex 0000000..3afef96[m
+[1m--- /dev/null[m
+[1m+++ b/README.md[m
+[36m@@ -0,0 +1,77 @@[m
+[32m+[m[32m# 👁️ EyeReminder[m
+[32m+[m
+[32m+[m[32m**EyeReminder** is a lightweight, professional 20-20-20 Eye Health & Hydration assistant for Windows desktop. It monitors active screen time, pauses automatically when idle or locked, and delivers elegant, floating break popups to protect your eyes and maintain optimal workplace ergonomics.[m
+[32m+[m
+[32m+[m[32m---[m
+[32m+[m
+[32m+[m[32m## ✨ Features[m
+[32m+[m
+[32m+[m[32m- **👀 20-20-20 Eye Rest Prompts**: Timed 20-second break popups reminding you to focus on an object 20 feet away every 20 minutes.[m
+[32m+[m[32m- **💧 Hydration Reminders**: Configurable water intake reminders to keep you hydrated throughout the day.[m
+[32m+[m[32m- **🧠 Smart Idle & Lock Detection**: Automatically pauses timer when you step away, lock your PC, or enter quiet hours.[m
+[32m+[m[32m- **🌙 Quiet Hours / Lunch Mode**: Schedule quiet periods (e.g., lunch breaks) during which reminders are suppressed.[m
+[32m+[m[32m- **📊 Daily Statistics & Progress**: Tracks completed eye and water breaks per day with historical logging.[m
+[32m+[m[32m- **⚙️ Full Customization**: Custom break durations, work intervals, audio chimes, and automatic Windows startup.[m
+[32m+[m[32m- **⚡ Ultra Lightweight**: Low CPU usage (< 0.1%) and minimal memory footprint (~35MB RAM).[m
+[32m+[m
+[32m+[m[32m---[m
+[32m+[m
+[32m+[m[32m## 📁 Project Structure[m
+[32m+[m
+[32m+[m[32m```[m
+[32m+[m[32mEyeReminder/[m
+[32m+[m[32m├── assets/                  # Icons and visual branding assets[m
+[32m+[m[32m│   ├── icon.ico[m
+[32m+[m[32m│   └── icon.png[m
+[32m+[m[32m├── src/                     # Source package[m
+[32m+[m[32m│   ├── __init__.py[m
+[32m+[m[32m│   ├── app_controller.py   # Application workflow controller & event loop[m
+[32m+[m[32m│   ├── break_popup.py       # Custom floating popup windows (Eye & Water)[m
+[32m+[m[32m│   ├── config.py            # JSON configuration manager with auto-backup[m
+[32m+[m[32m│   ├── settings_dialog.py   # Qt settings dialog, statistics & about dialog[m
+[32m+[m[32m│   ├── system_utils.py      # Win32 Ctypes idle/lock detection & audio synth[m
+[32m+[m[32m│   └── tray_icon.py         # System tray icon and context menu[m
+[32m+[m[32m├── build_exe.py             # PyInstaller production executable builder[m
+[32m+[m[32m├── generate_assets.py       # Dynamic high-DPI icon generator[m
+[32m+[m[32m├── main.py                  # Entry point with single-instance mutex[m
+[32m+[m[32m├── requirements.txt         # Python dependency specification[m
+[32m+[m[32m└── README.md                # Documentation[m
+[32m+[m[32m```[m
+[32m+[m
+[32m+[m[32m---[m
+[32m+[m
+[32m+[m[32m## 🚀 Getting Started[m
+[32m+[m
+[32m+[m[32m### Prerequisites[m
+[32m+[m
+[32m+[m[32m- Python 3.9+ on Windows 10/11[m
+[32m+[m
+[32m+[m[32m### Installation[m
+[32m+[m
+[32m+[m[32m1. Install dependencies:[m
+[32m+[m[32m   ```bash[m
+[32m+[m[32m   pip install -r requirements.txt[m
+[32m+[m[32m   ```[m
+[32m+[m
+[32m+[m[32m2. Run the application:[m
+[32m+[m[32m   ```bash[m
+[32m+[m[32m   python main.py[m
+[32m+[m[32m   ```[m
+[32m+[m
+[32m+[m[32m---[m
+[32m+[m
+[32m+[m[32m## 📦 Building Standalone Executable (.exe)[m
+[32m+[m
+[32m+[m[32mTo generate a single-file executable (`EyeReminder.exe`):[m
+[32m+[m
+[32m+[m[32m```bash[m
+[32m+[m[32mpython build_exe.py[m
+[32m+[m[32m```[m
+[32m+[m
+[32m+[m[32mThe output executable will be created in `dist/EyeReminder.exe`.[m
+[32m+[m
+[32m+[m[32m---[m
+[32m+[m
+[32m+[m[32m## 📄 License[m
+[32m+[m
+[32m+[m[32mMIT License. Designed for productivity and personal eye health care.[m
+[1mdiff --git a/assets/icon.ico b/assets/icon.ico[m
+[1mnew file mode 100644[m
+[1mindex 0000000..277d11e[m
+Binary files /dev/null and b/assets/icon.ico differ
+[1mdiff --git a/assets/icon.png b/assets/icon.png[m
+[1mnew file mode 100644[m
+[1mindex 0000000..a28ee78[m
+Binary files /dev/null and b/assets/icon.png differ
+[1mdiff --git a/build_exe.py b/build_exe.py[m
+[1mnew file mode 100644[m
+[1mindex 0000000..0a60fd8[m
+[1m--- /dev/null[m
+[1m+++ b/build_exe.py[m
+[36m@@ -0,0 +1,52 @@[m
+[32m+[m[32mimport os[m
+[32m+[m[32mimport sys[m
+[32m+[m[32mimport subprocess[m
+[32m+[m[32mimport shutil[m
+[32m+[m[32mfrom generate_assets import create_app_icon[m
+[32m+[m
+[32m+[m
+[32m+[m[32mdef build():[m
+[32m+[m[32m    print("=== EyeReminder PyInstaller Production Build Script ===")[m
+[32m+[m
+[32m+[m[32m    workspace = os.path.dirname(os.path.abspath(__file__))[m
+[32m+[m[32m    assets_dir = os.path.join(workspace, "assets")[m
+[32m+[m
+[32m+[m[32m    # 1. Ensure icons exist[m
+[32m+[m[32m    icon_png, icon_ico = create_app_icon(assets_dir)[m
+[32m+[m
+[32m+[m[32m    # 2. Construct PyInstaller command[m
+[32m+[m[32m    cmd = [[m
+[32m+[m[32m        sys.executable, "-m", "PyInstaller",[m
+[32m+[m[32m        "--name=EyeReminder",[m
+[32m+[m[32m        "--onefile",[m
+[32m+[m[32m        "--noconsole",[m
+[32m+[m[32m        f"--icon={icon_ico}",[m
+[32m+[m[32m        f"--add-data={icon_png};assets",[m
+[32m+[m[32m        f"--add-data={icon_ico};assets",[m
+[32m+[m[32m        "--clean",[m
+[32m+[m[32m        "main.py"[m
+[32m+[m[32m    ][m
+[32m+[m
+[32m+[m[32m    print(f"Running command: {' '.join(cmd)}")[m
+[32m+[m[32m    result = subprocess.run(cmd, cwd=workspace)[m
+[32m+[m
+[32m+[m[32m    if result.returncode == 0:[m
+[32m+[m[32m        exe_path = os.path.join(workspace, "dist", "EyeReminder.exe")[m
+[32m+[m[32m        print("\n[SUCCESS] BUILD SUCCESSFUL!")[m
+[32m+[m[32m        print(f"Executable location: {exe_path}")[m
+[32m+[m
+[32m+[m[32m        root_exe = os.path.join(workspace, "EyeReminder.exe")[m
+[32m+[m[32m        try:[m
+[32m+[m[32m            subprocess.run("taskkill /f /im EyeReminder.exe", shell=True, capture_output=True)[m
+[32m+[m[32m            shutil.copy(exe_path, root_exe)[m
+[32m+[m[32m            print(f"Copied to workspace root: {root_exe}")[m
+[32m+[m[32m        except Exception as e:[m
+[32m+[m[32m            print(f"Could not copy to root (file locked): {e}")[m
+[32m+[m[32m            print(f"You can use the built executable at: {exe_path}")[m
+[32m+[m[32m    else:[m
+[32m+[m[32m        print("\n[FAILED] BUILD FAILED! Check PyInstaller output above.")[m
+[32m+[m[32m        sys.exit(result.returncode)[m
+[32m+[m
+[32m+[m
+[32m+[m[32mif __name__ == "__main__":[m
+[32m+[m[32m    build()[m
+[1mdiff --git a/generate_assets.py b/generate_assets.py[m
+[1mnew file mode 100644[m
+[1mindex 0000000..7e74e4b[m
+[1m--- /dev/null[m
+[1m+++ b/generate_assets.py[m
+[36m@@ -0,0 +1,56 @@[m
+[32m+[m[32mimport os[m
+[32m+[m[32mfrom PIL import Image, ImageDraw[m
+[32m+[m
+[32m+[m
+[32m+[m[32mdef create_app_icon(output_dir="assets"):[m
+[32m+[m[32m    """Generate high-quality modern eye icon for system tray and executable."""[m
+[32m+[m[32m    os.makedirs(output_dir, exist_ok=True)[m
+[32m+[m[32m    size = 256[m
+[32m+[m[32m    img = Image.new("RGBA", (size, size), (0, 0, 0, 0))[m
+[32m+[m[32m    draw = ImageDraw.Draw(img)[m
+[32m+[m
+[32m+[m[32m    # Outer background circle[m
+[32m+[m[32m    draw.ellipse([8, 8, size - 8, size - 8], fill=(18, 24, 38, 255))[m
+[32m+[m
+[32m+[m[32m    # Outer Eye Shape (glowing cyan chord)[m
+[32m+[m[32m    draw.chord([28, 40, size - 28, 216], start=190, end=350, fill=(0, 210, 255, 230))[m
+[32m+[m[32m    # Inner eye cutout[m
+[32m+[m[32m    draw.chord([36, 52, size - 36, 204], start=190, end=350, fill=(18, 24, 38, 255))[m
+[32m+[m
+[32m+[m[32m    # Iris (Vibrant Teal / Cyan)[m
+[32m+[m[32m    iris_center = (size // 2, size // 2 + 10)[m
+[32m+[m[32m    iris_radius = 56[m
+[32m+[m[32m    draw.ellipse([m
+[32m+[m[32m        [iris_center[0] - iris_radius, iris_center[1] - iris_radius,[m
+[32m+[m[32m         iris_center[0] + iris_radius, iris_center[1] + iris_radius],[m
+[32m+[m[32m        fill=(0, 180, 216, 255)[m
+[32m+[m[32m    )[m
+[32m+[m
+[32m+[m[32m    # Pupil (Dark Deep Navy)[m
+[32m+[m[32m    pupil_radius = 28[m
+[32m+[m[32m    draw.ellipse([m
+[32m+[m[32m        [iris_center[0] - pupil_radius, iris_center[1] - pupil_radius,[m
+[32m+[m[32m         iris_center[0] + pupil_radius, iris_center[1] + pupil_radius],[m
+[32m+[m[32m        fill=(10, 15, 26, 255)[m
+[32m+[m[32m    )[m
+[32m+[m
+[32m+[m[32m    # Light Reflection Glint[m
+[32m+[m[32m    glint_radius = 10[m
+[32m+[m[32m    draw.ellipse([m
+[32m+[m[32m        [iris_center[0] - 18, iris_center[1] - 18,[m
+[32m+[m[32m         iris_center[0] - 18 + glint_radius * 2, iris_center[1] - 18 + glint_radius * 2],[m
+[32m+[m[32m        fill=(255, 255, 255, 240)[m
+[32m+[m[32m    )[m
+[32m+[m
+[32m+[m[32m    # Save PNG and ICO[m
+[32m+[m[32m    png_path = os.path.join(output_dir, "icon.png")[m
+[32m+[m[32m    ico_path = os.path.join(output_dir, "icon.ico")[m
+[32m+[m
+[32m+[m[32m    img.save(png_path, format="PNG")[m
+[32m+[m[32m    img.save(ico_path, format="ICO", sizes=[(16, 16), (32, 32), (48, 48), (64, 64), (128, 128), (256, 256)])[m
+[32m+[m[32m    print(f"Generated icons: {png_path}, {ico_path}")[m
+[32m+[m[32m    return png_path, ico_path[m
+[32m+[m
+[32m+[m
+[32m+[m[32mif __name__ == "__main__":[m
+[32m+[m[32m    create_app_icon()[m
+[1mdiff --git a/main.py b/main.py[m
+[1mnew file mode 100644[m
+[1mindex 0000000..30e55be[m
+[1m--- /dev/null[m
+[1m+++ b/main.py[m
+[36m@@ -0,0 +1,47 @@[m
+[32m+[m[32mimport os[m
+[32m+[m[32mimport sys[m
+[32m+[m[32mimport ctypes[m
+[32m+[m[32mfrom PySide6.QtCore import QSharedMemory[m
+[32m+[m[32mfrom PySide6.QtWidgets import QApplication, QMessageBox[m
+[32m+[m
+[32m+[m[32mfrom generate_assets import create_app_icon[m
+[32m+[m[32mfrom src.system_utils import logger, get_resource_path[m
+[32m+[m[32mfrom src.app_controller import AppController[m
+[32m+[m
+[32m+[m[32mos.environ["QT_AUTO_SCREEN_SCALE_FACTOR"] = "1"[m
+[32m+[m
+[32m+[m
+[32m+[m[32mdef main() -> None:[m
+[32m+[m[32m    try:[m
+[32m+[m[32m        app_id = 'antigravity.eyereminder.app.1.2'[m
+[32m+[m[32m        ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(app_id)[m
+[32m+[m[32m    except Exception:[m
+[32m+[m[32m        pass[m
+[32m+[m
+[32m+[m[32m    app = QApplication(sys.argv)[m
+[32m+[m[32m    app.setQuitOnLastWindowClosed(False)[m
+[32m+[m[32m    app.setApplicationName("EyeReminder")[m
+[32m+[m
+[32m+[m[32m    logger.info("=== Starting EyeReminder v1.2.0 ===")[m
+[32m+[m
+[32m+[m[32m    shared_mem = QSharedMemory("EyeReminder_SingleInstance_Mutex")[m
+[32m+[m[32m    if not shared_mem.create(1):[m
+[32m+[m[32m        QMessageBox.information([m
+[32m+[m[32m            None,[m
+[32m+[m[32m            "EyeReminder Already Running",[m
+[32m+[m[32m            "EyeReminder is already running silently in your system tray (near the clock)."[m
+[32m+[m[32m        )[m
+[32m+[m[32m        sys.exit(0)[m
+[32m+[m
+[32m+[m[32m    icon_png = get_resource_path(os.path.join("assets", "icon.png"))[m
+[32m+[m[32m    if not os.path.exists(icon_png):[m
+[32m+[m[32m        create_app_icon(os.path.dirname(icon_png))[m
+[32m+[m
+[32m+[m[32m    controller = AppController(icon_png)[m
+[32m+[m[32m    controller.start()[m
+[32m+[m
+[32m+[m[32m    sys.exit(app.exec())[m
+[32m+[m
+[32m+[m
+[32m+[m[32mif __name__ == "__main__":[m
+[32m+[m[32m    main()[m
+[1mdiff --git a/requirements.txt b/requirements.txt[m
+[1mnew file mode 100644[m
+[1mindex 0000000..049fd01[m
+[1m--- /dev/null[m
+[1m+++ b/requirements.txt[m
+[36m@@ -0,0 +1,3 @@[m
+[32m+[m[32mPySide6>=6.5.0[m
+[32m+[m[32mPillow>=10.0.0[m
+[32m+[m[32mpyinstaller>=5.0.0[m
+[1mdiff --git a/src/__init__.py b/src/__init__.py[m
+[1mnew file mode 100644[m
+[1mindex 0000000..2b0cb0a[m
+[1m--- /dev/null[m
+[1m+++ b/src/__init__.py[m
+[36m@@ -0,0 +1,4 @@[m
+[32m+[m[32m"""[m
+[32m+[m[32mEyeReminder - Professional 20-20-20 Eye Health & Hydration Assistant[m
+[32m+[m[32m"""[m
+[32m+[m[32m__version__ = "1.2.0"[m
+[1mdiff --git a/src/app_controller.py b/src/app_controller.py[m
+[1mnew file mode 100644[m
+[1mindex 0000000..64f9395[m
+[1m--- /dev/null[m
+[1m+++ b/src/app_controller.py[m
+[36m@@ -0,0 +1,260 @@[m
+[32m+[m[32mimport datetime[m
+[32m+[m[32mfrom typing import Optional[m
+[32m+[m[32mfrom PySide6.QtCore import QObject, QTimer[m
+[32m+[m[32mfrom PySide6.QtWidgets import QApplication[m
+[32m+[m
+[32m+[m[32mfrom src.config import ConfigManager[m
+[32m+[m[32mfrom src.system_utils import get_idle_duration_seconds, is_workstation_locked, is_in_lunch_break, set_autostart, logger[m
+[32m+[m[32mfrom src.tray_icon import TrayIconManager[m
+[32m+[m[32mfrom src.break_popup import BreakPopupWindow, WaterPopupWindow[m
+[32m+[m[32mfrom src.settings_dialog import SettingsDialog, AboutDialog[m
+[32m+[m
+[32m+[m
+[32m+[m[32mclass AppController(QObject):[m
+[32m+[m[32m    def __init__(self, icon_path: str, parent=None):[m
+[32m+[m[32m        super().__init__(parent)[m
+[32m+[m[32m        self.icon_path = icon_path[m
+[32m+[m[32m        self.config = ConfigManager()[m
+[32m+[m
+[32m+[m[32m        if self.config.get("autostart_enabled", True):[m
+[32m+[m[32m            set_autostart(True)[m
+[32m+[m
+[32m+[m[32m        self.elapsed_active_secs: int = 0[m
+[32m+[m[32m        self.elapsed_water_secs: int = 0[m
+[32m+[m[32m        self.is_manual_paused: bool = False[m
+[32m+[m[32m        self.pause_until: Optional[datetime.datetime] = None[m
+[32m+[m[32m        self.is_in_break: bool = False[m
+[32m+[m
+[32m+[m[32m        self.tray_mgr = TrayIconManager(self.icon_path)[m
+[32m+[m[32m        self.popup = BreakPopupWindow([m
+[32m+[m[32m            break_duration=self.config.get("break_duration_secs", 20),[m
+[32m+[m[32m            work_interval=self.config.get("work_interval_mins", 20),[m
+[32m+[m[32m            sound_enabled=self.config.get("sound_enabled", True)[m
+[32m+[m[32m        )[m
+[32m+[m[32m        self.water_popup = WaterPopupWindow([m
+[32m+[m[32m            water_duration=self.config.get("water_duration_secs", 20),[m
+[32m+[m[32m            water_interval=self.config.get("water_interval_mins", 60),[m
+[32m+[m[32m            sound_enabled=self.config.get("sound_enabled", True)[m
+[32m+[m[32m        )[m
+[32m+[m[32m        self.settings_dialog: Optional[SettingsDialog] = None[m
+[32m+[m[32m        self.about_dialog: Optional[AboutDialog] = None[m
+[32m+[m
+[32m+[m[32m        # Signal connections[m
+[32m+[m[32m        self.tray_mgr.trigger_break_now.connect(self.trigger_break_immediately)[m
+[32m+
